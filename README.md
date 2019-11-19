@@ -15,4 +15,4 @@
 <P><em>- Universidad Nacional de Panamá</em>
 <h1>Redes Sociales</h1>
 <p><strong>Facebook:</strong> <a href="https://www.facebook.com/photo.php?fbid=764844910530639&set=a.136760306672439&type=3&theater">Getsemani Gonzalez</a>
-<p><strong>Instagram:</strong> <a href="https://www.instagram.com/https:/vicctoriagg?igshid=1m9ijfj6q28o">Getsemani Gonzalez</a>
+<p><strong>Instagram:</strong> <a href="https://www.instagram.com/vicctoriagg?igshid=1m9ijfj6qj28o">Getsemani Gonzalez</a>
