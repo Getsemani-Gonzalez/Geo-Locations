@@ -16,3 +16,14 @@
   <h1>Redes Sociales</h1>
   <p><strong>Instagram:</strong> <a href="https://www.instagram.com/vicctoriagg?igshid=1m9ijfj6qj28o">vicctoriagg</a>
   <p><strong>Facebook:</strong> <a href="https://www.facebook.com/profile.php?id=100010154114100">Gethsemane G. Castro</a>
+
+
+	<head>
+		<script type="text/javascript" src="sencha/sencha-touch.js"></script>
+		<script type="text/javascript" src="codigo.js"></script>
+		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+		<link rel="stylesheet" href="sencha/resources/css/apple.css" />
+	</head>
+	<body>
+	</body>
+</html>
