@@ -21,7 +21,7 @@
 
 
 
-
+<! DOCTYPE html>
 <html>
   <head>
     <title>Geolocation</title>
@@ -40,13 +40,13 @@
     See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
     -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
-	  
- <script>
+
+    <script>
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
-
-var map;
+    
+    
 
 function initialize() {
   var mapOptions = {
@@ -65,15 +65,15 @@ function initialize() {
         map: map,
         position: pos,
         content: 'Location found using HTML5.'
-        });
+      });
 
-        map.setCenter(pos);
+      map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
     });
   } else {
     // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
+    
   }
 }
 
@@ -100,5 +100,5 @@ google.maps.event.addDomListener(window, 'load', initialize);
   </head>
   <body>
     <div id="map-canvas"></div>
-  </body>
-</html>
+    </body>
+</html>   
