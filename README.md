@@ -102,3 +102,71 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="map-canvas"></div>
     </body>
 </html>   
+
+  width="800" 
+
+        height="500" 
+
+        frameborder="0" 
+
+        scrolling="no" 
+
+        marginheight="0" 
+
+        marginwidth="0" 
+
+        src= "">
+
+</iframe><br />
+
+
+
+</body>
+
+</html>
+p {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to get your coordinates.</p>
+
+<button onclick="getLocation()">Try It</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+    
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
+
