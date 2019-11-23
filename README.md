@@ -103,70 +103,84 @@ google.maps.event.addDomListener(window, 'load', initialize);
     </body>
 </html>   
 
-  width="800" 
-
-        height="500" 
-
-        frameborder="0" 
-
-        scrolling="no" 
-
-        marginheight="0" 
-
-        marginwidth="0" 
-
-        src= "">
-
-</iframe><br />
-
-
-
-</body>
-
-</html>
-p {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <!--
+    Include the maps javascript with sensor=true because this code is using a
+    sensor (a GPS locator) to determine the user's location.
+    See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
+    -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
-<p>Click the button to get your coordinates.</p>
+    <script>
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see a blank space instead of the map, this
+// is probably because you have denied permission for location sharing.
 
-<button onclick="getLocation()">Try It</button>
+var map;
 
-<p id="demo"></p>
+function initialize() {
+  var mapOptions = {
+    zoom: 6
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
 
-<script>
-var x = document.getElementById("demo");
+  // Try HTML5 geolocation
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
 
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(showPosition);
-  } else { 
-    x.innerHTML = "Geolocation is not supported by this browser.";
+      var infowindow = new google.maps.InfoWindow({
+        map: map,
+        position: pos,
+        content: 'Location found using HTML5.'
+      });
+
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
   }
 }
-    
-function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
 }
-</script>
 
-</body>
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
 </html>
-
