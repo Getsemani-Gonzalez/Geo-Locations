@@ -119,8 +119,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <!--
     Include the maps javascript with sensor=true because this code is using a
     sensor (a GPS locator) to determine the user's location.
-    See: https://developers.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API
-    -->
+    See: https://developes.google.com/maps/documentation/javascript/tutorial#Loading_the_Maps_API->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 
     <script>
@@ -184,3 +183,12 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div id="map-canvas"></div>
   </body>
 </html>
+
+// Check for geolocation support
+if (navigator.geolocation) {
+    // Use method getCurrentPosition to get coordinates
+    navigator.geolocation.getCurrentPosition(function (position) {
+        // Access them accordingly
+        alert(position.coords.latitude + ", " + position.coords.longitude);
+    });
+}
