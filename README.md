@@ -184,27 +184,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 </iframe><br />
 
-
-
-</body>
-
-</html>
-p {
-  animation-duration: 3s;
-  animation-name: slidein;
-}
-
-@keyframes slidein {
-  from {
-    margin-left: 100%;
-    width: 300%
-  }
-
-  to {
-    margin-left: 0%;
-    width: 100%;
-  }
-}
 <!DOCTYPE html>
 <html>
 <body>
