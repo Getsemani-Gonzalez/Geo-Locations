@@ -157,10 +157,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 <body onload = "getLoc()">
 
-  <h1>Geolocation Demo</h1>
-
-
-
+  <h1>Geolocation</h1>
   <p>
 
     <a id = "mapLink"
@@ -193,4 +190,40 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 </body>
 
+</html>
+
+ap.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+}
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
+
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
 </html>
